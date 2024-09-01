@@ -19,4 +19,11 @@ public class PessoaController {
     public PessoaDTO cadastroPessoa(@Valid @RequestBody PessoaDTO pessoaDTO) {
         return pessoaService.cadastroPessoa(pessoaDTO);
     }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public PessoaDTO buscaPessoaPorId(@PathVariable Long id) {
+        return pessoaService.buscaPessoaPorId(id);
+    }
+
 }

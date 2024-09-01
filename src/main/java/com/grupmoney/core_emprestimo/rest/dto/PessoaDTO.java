@@ -1,7 +1,6 @@
 package com.grupmoney.core_emprestimo.rest.dto;
 
 import com.grupmoney.core_emprestimo.domain.enums.TipoIdentificador;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +20,7 @@ public class PessoaDTO {
     private String nome;
 
     @NotNull(message = "campo identificador é obrigatório")
-    private String identificador;
+    private IdentificadorDTO identificador;
 
     @NotNull(message = "campo data nascimento é obrigatório")
     private Date dataNascimento;
@@ -34,5 +33,4 @@ public class PessoaDTO {
 
     @NotNull(message = "campo valor maximo emprestimo é obrigatório")
     private BigDecimal valorMaxEmprestimo;
-
 }

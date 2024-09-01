@@ -2,7 +2,6 @@ package com.grupmoney.core_emprestimo.domain.entity;
 
 import com.grupmoney.core_emprestimo.domain.enums.StatusPagamento;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

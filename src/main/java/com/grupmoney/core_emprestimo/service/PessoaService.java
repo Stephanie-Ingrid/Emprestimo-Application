@@ -5,4 +5,6 @@ import com.grupmoney.core_emprestimo.rest.dto.PessoaDTO;
 public interface PessoaService {
 
     PessoaDTO cadastroPessoa(PessoaDTO pessoaDTO);
+
+    PessoaDTO buscaPessoaPorId(Long id);
 }

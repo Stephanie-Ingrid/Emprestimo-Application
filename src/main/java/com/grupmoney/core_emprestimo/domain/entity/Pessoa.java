@@ -2,14 +2,12 @@ package com.grupmoney.core_emprestimo.domain.entity;
 
 import com.grupmoney.core_emprestimo.domain.enums.TipoIdentificador;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -22,8 +20,7 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long idPessoa;
+    private Long id;
 
     @Column(name = "nome")
     private String nome;
