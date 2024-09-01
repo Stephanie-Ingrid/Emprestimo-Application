@@ -1,11 +1,13 @@
 package com.grupmoney.core_emprestimo.service;
 
 import com.grupmoney.core_emprestimo.domain.entity.Pessoa;
+import com.grupmoney.core_emprestimo.domain.enums.TipoIdentificador;
 import com.grupmoney.core_emprestimo.domain.repository.PessoaRepository;
 import com.grupmoney.core_emprestimo.exception.BadRequestException;
 import com.grupmoney.core_emprestimo.exception.DadosDuplicadosException;
 import com.grupmoney.core_emprestimo.rest.dto.IdentificadorDTO;
 import com.grupmoney.core_emprestimo.rest.dto.PessoaDTO;
+import com.grupmoney.validacoes.ValidacaoPessoa;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,32 +36,40 @@ public class PessoaServiceImpl implements PessoaService {
 
         switch (pessoaDTO.getTipoIdentificador()) {
             case PF:
-                if (!Validacoes.validaCPF(identificadorDTO.getCpf())) {
+                if (!ValidacaoPessoa.validaCPF(identificadorDTO.getCpf())) {
                     throw new BadRequestException("CPF inválido");
                 }
                 pessoa.setIdentificador(identificadorDTO.getCpf());
+                pessoa.setValorMinParcelaMensal(TipoIdentificador.PF.getValorMinParcelaMensal());
+                pessoa.setValorMaxEmprestimo(TipoIdentificador.PF.getValorMaxEmprestimo());
                 break;
 
             case PJ:
-                if (!Validacoes.validaCNPJ(identificadorDTO.getCNPJ())) {
+                if (!ValidacaoPessoa.validaCNPJ(identificadorDTO.getCNPJ())) {
                     throw new BadRequestException("CNPJ inválido");
                 }
                 pessoa.setIdentificador(identificadorDTO.getCNPJ());
+                pessoa.setValorMinParcelaMensal(TipoIdentificador.PJ.getValorMinParcelaMensal());
+                pessoa.setValorMaxEmprestimo(TipoIdentificador.PJ.getValorMaxEmprestimo());
                 break;
 
             case EU:
-                if (!Validacoes.validaEstudante(identificadorDTO.getMatriculaEstudante())) {
+                if (!ValidacaoPessoa.validaEstudante(identificadorDTO.getMatriculaEstudante())) {
                     throw new BadRequestException("Identificador de Estudante Universitário inválido");
                 }
                 pessoa.setIdentificador(identificadorDTO.getMatriculaEstudante());
+                pessoa.setValorMinParcelaMensal(TipoIdentificador.EU.getValorMinParcelaMensal());
+                pessoa.setValorMaxEmprestimo(TipoIdentificador.EU.getValorMaxEmprestimo());
                 break;
 
             case AP:
-                if (!Validacoes.validaCaractersAposentado(identificadorDTO.getIdentificadorAposentado())
-                        || !Validacoes.isValidIdentificadorAposentado(identificadorDTO.getIdentificadorAposentado())) {
+                if (!ValidacaoPessoa.validaCaractersAposentado(identificadorDTO.getIdentificadorAposentado())
+                        || !ValidacaoPessoa.isValidIdentificadorAposentado(identificadorDTO.getIdentificadorAposentado())) {
                     throw new BadRequestException("Identificador de Aposentado inválido");
                 }
                 pessoa.setIdentificador(identificadorDTO.getIdentificadorAposentado());
+                pessoa.setValorMinParcelaMensal(TipoIdentificador.AP.getValorMinParcelaMensal());
+                pessoa.setValorMaxEmprestimo(TipoIdentificador.AP.getValorMaxEmprestimo());
                 break;
         }
 
@@ -91,6 +101,7 @@ public class PessoaServiceImpl implements PessoaService {
     public void deletarPessoaPorId(Long id) {
         pessoaRepository.deletePessoaById(id);
     }
+
 
 }
 

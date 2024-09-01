@@ -1,4 +1,4 @@
-package com.grupmoney.core_emprestimo.service;
+package com.grupmoney.validacoes;
 
 import com.grupmoney.core_emprestimo.exception.BadRequestException;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import java.util.InputMismatchException;
 
 @AllArgsConstructor
-public class Validacoes {
+public class ValidacaoPessoa {
 
 
     public static boolean validaCaractersAposentado(String aposentado) {
@@ -64,6 +64,7 @@ public class Validacoes {
         if (!cpf.matches("^\\d{11}$")) {
             throw new BadRequestException("Deve conter 11 digitos!");
         }
+
 
         if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")
                 || cpf.equals("33333333333") || cpf.equals("44444444444") || cpf.equals("55555555555")

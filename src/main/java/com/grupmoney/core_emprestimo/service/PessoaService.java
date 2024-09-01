@@ -9,4 +9,5 @@ public interface PessoaService {
     PessoaDTO buscaPessoaPorId(Long id);
 
     void deletarPessoaPorId(Long id);
+
 }

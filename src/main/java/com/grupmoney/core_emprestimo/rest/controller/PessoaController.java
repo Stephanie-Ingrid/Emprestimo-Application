@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.*;
 
-
 @RequestMapping("/pessoa")
 @AllArgsConstructor
 @RestController
@@ -30,8 +29,9 @@ public class PessoaController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void deletaPessoaPorId(@PathVariable Long id){
+    public void deletaPessoaPorId(@PathVariable Long id) {
         pessoaService.deletarPessoaPorId(id);
     }
+
 
 }
