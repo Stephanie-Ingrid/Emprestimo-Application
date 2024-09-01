@@ -47,7 +47,7 @@ public class Validacoes {
         Integer primeiroNumero = Integer.parseInt(primeiroDigitoConvert);
         Integer ultimoNumero = Integer.parseInt(ultimoDigitoConvert);
 
-        if (primeiroNumero + ultimoNumero != 9){
+        if (primeiroNumero + ultimoNumero != 9) {
             throw new BadRequestException("Matricula Inválida");
         }
 
