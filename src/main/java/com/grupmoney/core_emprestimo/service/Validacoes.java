@@ -41,8 +41,14 @@ public class Validacoes {
         char primeiroDigito = estudante.charAt(0);
         char ultimoDigito = estudante.charAt(7);
 
-        if (primeiroDigito + ultimoDigito != 9) {
-            throw new BadRequestException("Matricula invalida");
+        String primeiroDigitoConvert = String.valueOf(primeiroDigito);
+        String ultimoDigitoConvert = String.valueOf(ultimoDigito);
+
+        Integer primeiroNumero = Integer.parseInt(primeiroDigitoConvert);
+        Integer ultimoNumero = Integer.parseInt(ultimoDigitoConvert);
+
+        if (primeiroNumero + ultimoNumero != 9){
+            throw new BadRequestException("Matricula Inválida");
         }
 
         return true;
