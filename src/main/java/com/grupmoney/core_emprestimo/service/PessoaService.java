@@ -7,4 +7,6 @@ public interface PessoaService {
     PessoaDTO cadastroPessoa(PessoaDTO pessoaDTO);
 
     PessoaDTO buscaPessoaPorId(Long id);
+
+    void deletarPessoaPorId(Long id);
 }

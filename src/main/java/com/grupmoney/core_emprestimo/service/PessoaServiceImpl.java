@@ -6,6 +6,7 @@ import com.grupmoney.core_emprestimo.exception.BadRequestException;
 import com.grupmoney.core_emprestimo.exception.DadosDuplicadosException;
 import com.grupmoney.core_emprestimo.rest.dto.IdentificadorDTO;
 import com.grupmoney.core_emprestimo.rest.dto.PessoaDTO;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -83,6 +84,12 @@ public class PessoaServiceImpl implements PessoaService {
         Optional<Pessoa> pessoa = pessoaRepository.findPessoaById(id);
 
         return modelMapper.map(pessoa, PessoaDTO.class);
+    }
+
+    @Override
+    @Transactional
+    public void deletarPessoaPorId(Long id) {
+        pessoaRepository.deletePessoaById(id);
     }
 
 }

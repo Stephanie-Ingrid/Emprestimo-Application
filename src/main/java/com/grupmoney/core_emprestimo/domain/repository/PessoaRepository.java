@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 
     Optional<Pessoa> findPessoaById(Long id);
+
+    void deletePessoaById(Long id);
 }
