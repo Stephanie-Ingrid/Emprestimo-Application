@@ -34,6 +34,9 @@ public class Pessoa {
     @Enumerated(EnumType.STRING)
     private TipoIdentificador tipoIdentificador;
 
+    @Column(name = "chave_pix")
+    private String chavePix;
+
     @Column(name = "valor_min_parcela_mensal", precision = 18, scale = 4)
     private BigDecimal valorMinParcelaMensal;
 

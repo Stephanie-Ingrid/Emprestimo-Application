@@ -33,5 +33,11 @@ public class PessoaController {
         pessoaService.deletarPessoaPorId(id);
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void atualizaPessoa (@PathVariable Long id, @RequestBody PessoaDTO pessoaDTO){
+        pessoaService.atualizaPessoa(id, pessoaDTO);
+    }
+
 
 }

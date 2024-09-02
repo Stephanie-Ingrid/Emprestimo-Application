@@ -32,6 +32,60 @@ public class PessoaServiceImpl implements PessoaService {
     public PessoaDTO cadastroPessoa(PessoaDTO pessoaDTO) {
         Pessoa pessoa = modelMapper.map(pessoaDTO, Pessoa.class);
 
+        pessoa = validaTipoIdentificador(pessoaDTO, pessoa);
+
+        try {
+            pessoaRepository.save(pessoa);
+
+        } catch (DataAccessException e) {
+            log.warn("erro ao salvar usuario na base");
+            throw new DadosDuplicadosException("Pessoa informada já está cadastrada");
+        }
+
+        PessoaDTO pessoaCadastradaDTO = modelMapper.map(pessoa, PessoaDTO.class);
+        pessoaCadastradaDTO.setIdentificador(pessoaDTO.getIdentificador());
+
+        return pessoaCadastradaDTO;
+    }
+
+
+    @Override
+    public PessoaDTO buscaPessoaPorId(Long id) {
+
+        Optional<Pessoa> pessoa = pessoaRepository.findPessoaById(id);
+
+        return modelMapper.map(pessoa, PessoaDTO.class);
+    }
+
+    @Override
+    @Transactional
+    public void deletarPessoaPorId(Long id) {
+        pessoaRepository.deletePessoaById(id);
+    }
+
+    @Override
+    public void atualizaPessoa(Long id, PessoaDTO pessoaDTO) {
+
+        Pessoa pessoa = pessoaRepository.findPessoaById(id).orElseThrow(() -> new BadRequestException("Pessoa informada não existe"));
+
+        pessoa.setNome(pessoaDTO.getNome());
+        pessoa.setChavePix(pessoaDTO.getChavePix());
+        pessoa.setTipoIdentificador(pessoaDTO.getTipoIdentificador());
+        pessoa.setDataNascimento(pessoaDTO.getDataNascimento());
+
+        pessoa = validaTipoIdentificador(pessoaDTO, pessoa);
+
+        try {
+            pessoaRepository.save(pessoa);
+        } catch (DataAccessException e) {
+            log.warn("erro atualizar pessoa com id: " + id);
+            throw new DadosDuplicadosException("dados informados já existem");
+        }
+    }
+
+
+    private Pessoa validaTipoIdentificador(PessoaDTO pessoaDTO, Pessoa pessoa) {
+
         IdentificadorDTO identificadorDTO = pessoaDTO.getIdentificador();
 
         switch (pessoaDTO.getTipoIdentificador()) {
@@ -72,37 +126,8 @@ public class PessoaServiceImpl implements PessoaService {
                 pessoa.setValorMaxEmprestimo(TipoIdentificador.AP.getValorMaxEmprestimo());
                 break;
         }
-
-        try {
-            pessoaRepository.save(pessoa);
-
-        } catch (DataAccessException e) {
-            log.warn("erro ao salvar usuario na base");
-            throw new DadosDuplicadosException("Pessoa informada já está cadastrada");
-        }
-
-        PessoaDTO pessoaCadastradaDTO = modelMapper.map(pessoa, PessoaDTO.class);
-        pessoaCadastradaDTO.setIdentificador(pessoaDTO.getIdentificador());
-
-        return pessoaCadastradaDTO;
+        return pessoa;
     }
-
-
-    @Override
-    public PessoaDTO buscaPessoaPorId(Long id) {
-
-        Optional<Pessoa> pessoa = pessoaRepository.findPessoaById(id);
-
-        return modelMapper.map(pessoa, PessoaDTO.class);
-    }
-
-    @Override
-    @Transactional
-    public void deletarPessoaPorId(Long id) {
-        pessoaRepository.deletePessoaById(id);
-    }
-
-
 }
 
 

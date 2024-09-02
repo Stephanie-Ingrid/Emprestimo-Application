@@ -1,6 +1,5 @@
 package com.grupmoney.core_emprestimo.rest.dto;
 
-import com.grupmoney.core_emprestimo.domain.enums.StatusPagamento;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,9 +25,6 @@ public class EmprestimoDTO {
 
     @NotNull(message = "numeroParcelas não pode ser nulo")
     private Long numeroParcelas;
-
-    @NotNull(message = "statusPagamento não pode ser nulo")
-    private StatusPagamento statusPagamento;
 
     private LocalDateTime dataCriacao;
 }

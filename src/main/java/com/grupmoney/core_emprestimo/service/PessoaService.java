@@ -10,4 +10,5 @@ public interface PessoaService {
 
     void deletarPessoaPorId(Long id);
 
+    void atualizaPessoa(Long id, PessoaDTO pessoaDTO);
 }

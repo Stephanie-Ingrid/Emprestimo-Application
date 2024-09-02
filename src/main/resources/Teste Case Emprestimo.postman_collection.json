@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "4184ef15-b841-4359-9207-22b3dc0eb4de",
+		"name": "Teste Case Emprestimo",
+		"description": "Teste realizado para candidatura de desenvolvedor java  \n  \ntecnologias utilizadas:\n\n- Java 17\n    \n- Spring-Boot\n    \n- Maven\n    \n- MySQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23405160"
+	},
+	"item": [
+		{
+			"name": "Testes",
+			"item": [
+				{
+					"name": "Testes Dados incompletos",
+					"item": [
+						{
+							"name": "Cadastro Pessoa Fisica teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Lavínia Vanessa Silva\",\r\n    \"identificador\": {\r\n       \"cpf\": \"295.164.351-\"},\r\n    \"dataNascimento\": \"1978-02-11\",\r\n    \"tipoIdentificador\": \"PF\",\r\n    \"valorMinParcelaMensal\": 100.00,\r\n    \"valorMaxEmprestimo\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro pessoa juridica teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Sabrina Elisa Campos\",\r\n    \"identificador\": {\r\n       \"cnpj\": \"59.886.1650001-\"},\r\n    \"dataNascimento\": \"1978-02-11\",\r\n    \"tipoIdentificador\": \"PJ\",\r\n    \"valorMinParcelaMensal\": 100.00,\r\n    \"valorMaxEmprestimo\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Matricula Estudante teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Ricardo Manuel Fernandes\",\r\n    \"identificador\": {\r\n       \"matriculaEstudante\": \"6823549\"},\r\n    \"dataNascimento\": \"1989-05-09\",\r\n    \"tipoIdentificador\": \"EU\",\r\n    \"valorMinParcelaMensal\": 100.00,\r\n    \"valorMaxEmprestimo\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro identificador aposentado teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Samuel Luís Vieira\",\r\n    \"identificador\": {\r\n       \"identificadorAposentado\": \"325470816\"},\r\n    \"dataNascimento\": \"1944-02-09\",\r\n    \"tipoIdentificador\": \"AP\",\r\n    \"valorMinParcelaMensal\": 100.00,\r\n    \"valorMaxEmprestimo\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Testes Dados Invalidos",
+					"item": [
+						{
+							"name": "cadastro pessoa fisica teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Tiago Lucca Marcos Assunção\",\r\n    \"identificador\": {\r\n       \"cpf\": \"295.164.351-12\"},\r\n    \"dataNascimento\": \"1978-02-11\",\r\n    \"tipoIdentificador\": \"PF\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cadastro pessoa juridica teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Nicolas Edson Luís Campos\",\r\n    \"identificador\": {\r\n       \"cnpj\": \"64.388.0700001-31\"},\r\n    \"dataNascimento\": \"1979-03-10\",\r\n    \"tipoIdentificador\": \"PJ\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cadastro Matricula Estudante teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Vitória Fernanda Pietra da Cunha\",\r\n    \"identificador\": {\r\n       \"matriculaEstudante\": \"60951472\"},\r\n    \"dataNascimento\": \"2002-02-09\",\r\n    \"tipoIdentificador\": \"EU\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cadastro identificador aposentado teste",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Oliver Enrico Elias Porto\",\r\n    \"identificador\": {\r\n       \"identificadorAposentado\": \"3294708169\"},\r\n    \"dataNascimento\": \"1944-07-15\",\r\n    \"tipoIdentificador\": \"AP\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "API Emprestimo",
+			"item": [
+				{
+					"name": "Cadastros",
+					"item": [
+						{
+							"name": "Cadastro Pessoa Fisica",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Beatriz Simone Esther Farias\",\r\n    \"identificador\": {\r\n       \"cpf\": \"087.681.750-94\"},\r\n    \"dataNascimento\": \"1989-05-03\",\r\n    \"tipoIdentificador\": \"PF\",\r\n    \"chavePix\":\"beatriz@gmail.com\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Pessoa juridica",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Geraldo Yago Caio Aragão\",\r\n    \"identificador\": {\r\n       \"cnpj\": \"15.259.2860001-00\"},\r\n    \"dataNascimento\": \"1949-08-12\",\r\n    \"tipoIdentificador\": \"PJ\",\r\n    \"chavePix\":\"Geraldo@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Matricula Estudante",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rafael Fernando Juan Freitas\",\r\n    \"identificador\": {\r\n       \"matriculaEstudante\": \"13492158\"},\r\n    \"dataNascimento\": \"1998-02-08\",\r\n    \"tipoIdentificador\": \"EU\",\r\n    \"chavePix\":\"Rafael@gmail.com\"\r\n\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cadastro Identificador Aposentado",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rayssa Marina Duarte\",\r\n    \"identificador\": {\r\n       \"identificadorAposentado\": \"2297154638\"},\r\n    \"dataNascimento\": \"1950-04-14\",\r\n    \"tipoIdentificador\": \"AP\",\r\n    \"chavePix\":\"Rayssa@gmail.com\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualiza Pessoa",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"Rayssa Marina Duarte\",\r\n    \"identificador\": {\r\n       \"matriculaEstudante\": \"12345578\"},\r\n    \"dataNascimento\": \"1950-04-14\",\r\n    \"tipoIdentificador\": \"EU\",\r\n    \"chavePix\":\"Rayssa@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/pessoa/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deletar Pessoa por id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/pessoa/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"pessoa",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Realiza Emprestimo",
+					"item": [
+						{
+							"name": "Realiza Emprestimo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idPessoa\":1,\r\n    \"valorEmprestimo\":600,\r\n    \"numeroParcelas\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/emprestimo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"emprestimo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Realiza Emprestimo Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/emprestimo",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"emprestimo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
