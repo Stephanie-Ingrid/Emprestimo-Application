@@ -27,9 +27,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 @Data
 @Slf4j
+@Service
 @AllArgsConstructor
 public class EmprestimoServiceImpl implements EmprestimoService {
 

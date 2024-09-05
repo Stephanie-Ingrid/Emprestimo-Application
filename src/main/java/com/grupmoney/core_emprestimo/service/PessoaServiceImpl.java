@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Service
 @Data
 @Slf4j
+@Service
 @AllArgsConstructor
 public class PessoaServiceImpl implements PessoaService {
 

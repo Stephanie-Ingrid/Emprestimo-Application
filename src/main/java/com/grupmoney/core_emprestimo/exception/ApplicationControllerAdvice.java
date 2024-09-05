@@ -62,7 +62,7 @@ public class ApplicationControllerAdvice {
     }
 
     @ExceptionHandler(IntegrationErrorException.class)
-    @ResponseStatus(BAD_REQUEST)
+    @ResponseStatus(INTERNAL_SERVER_ERROR)
     @ResponseBody
     public ApiErros handleIntegrationException(IntegrationErrorException e) {
         return new ApiErros("Sistema indisponivel, por favor tente mais tarde");

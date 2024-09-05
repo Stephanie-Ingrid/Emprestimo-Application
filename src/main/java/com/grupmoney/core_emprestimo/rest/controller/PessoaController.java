@@ -27,17 +27,18 @@ public class PessoaController {
         return pessoaService.buscaPessoaPorId(id);
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(NO_CONTENT)
+    public void atualizaPessoa (@PathVariable Long id, @RequestBody PessoaDTO pessoaDTO){
+        pessoaService.atualizaPessoa(id, pessoaDTO);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
     public void deletaPessoaPorId(@PathVariable Long id) {
         pessoaService.deletarPessoaPorId(id);
     }
 
-    @PutMapping("/{id}")
-    @ResponseStatus(NO_CONTENT)
-    public void atualizaPessoa (@PathVariable Long id, @RequestBody PessoaDTO pessoaDTO){
-        pessoaService.atualizaPessoa(id, pessoaDTO);
-    }
 
 
 }
