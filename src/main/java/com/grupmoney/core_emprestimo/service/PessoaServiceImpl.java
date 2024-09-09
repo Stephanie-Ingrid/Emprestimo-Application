@@ -89,6 +89,10 @@ public class PessoaServiceImpl implements PessoaService {
 
         switch (pessoaDTO.getTipoIdentificador()) {
             case PF:
+                if (identificadorDTO.getCpf() == null){
+                    throw new BadRequestException("campo CPF não pode ser nulo");
+                }
+
 //                if (!ValidacaoPessoa.validaCPF(identificadorDTO.getCpf())) {
 //                    throw new BadRequestException("CPF inválido");
 //                }
@@ -98,6 +102,11 @@ public class PessoaServiceImpl implements PessoaService {
                 break;
 
             case PJ:
+
+                if (identificadorDTO.getCNPJ() == null){
+                    throw new BadRequestException("campo CNPJ não pode ser nulo");
+                }
+
 //                if (!ValidacaoPessoa.validaCNPJ(identificadorDTO.getCNPJ())) {
 //                    throw new BadRequestException("CNPJ inválido");
 //                }

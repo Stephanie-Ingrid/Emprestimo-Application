@@ -13,9 +13,9 @@ public class ValidacaoPessoa {
             throw new BadRequestException("Informe seu identificador");
         }
 
-        if (!aposentado.matches("^\\d{10}$")) {
-            throw new BadRequestException("Identificador Aposentado deve conter 10 digitos");
-        }
+//        if (!aposentado.matches("^\\d{10}$")) {
+//            throw new BadRequestException("Identificador Aposentado deve conter 10 digitos");
+//        }
 
         char ultimoDig = aposentado.charAt(9);
 
@@ -31,9 +31,9 @@ public class ValidacaoPessoa {
             throw new BadRequestException("Informe sua matricula");
         }
 
-        if (!estudante.matches("^\\d{8}$")) {
-            throw new BadRequestException("Matricula deve conter 8 digitos");
-        }
+//        if (!estudante.matches("^\\d{8}$")) {
+//            throw new BadRequestException("Matricula deve conter 8 digitos");
+//        }
 
         char primeiroDigito = estudante.charAt(0);
         char ultimoDigito = estudante.charAt(7);
