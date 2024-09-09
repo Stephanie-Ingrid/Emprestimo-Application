@@ -48,7 +48,6 @@ public class PessoaServiceImpl implements PessoaService {
         return pessoaCadastradaDTO;
     }
 
-
     @Override
     public PessoaDTO buscaPessoaPorId(Long id) {
 
@@ -90,18 +89,18 @@ public class PessoaServiceImpl implements PessoaService {
 
         switch (pessoaDTO.getTipoIdentificador()) {
             case PF:
-                if (!ValidacaoPessoa.validaCPF(identificadorDTO.getCpf())) {
-                    throw new BadRequestException("CPF inválido");
-                }
+//                if (!ValidacaoPessoa.validaCPF(identificadorDTO.getCpf())) {
+//                    throw new BadRequestException("CPF inválido");
+//                }
                 pessoa.setIdentificador(identificadorDTO.getCpf());
                 pessoa.setValorMinParcelaMensal(TipoIdentificador.PF.getValorMinParcelaMensal());
                 pessoa.setValorMaxEmprestimo(TipoIdentificador.PF.getValorMaxEmprestimo());
                 break;
 
             case PJ:
-                if (!ValidacaoPessoa.validaCNPJ(identificadorDTO.getCNPJ())) {
-                    throw new BadRequestException("CNPJ inválido");
-                }
+//                if (!ValidacaoPessoa.validaCNPJ(identificadorDTO.getCNPJ())) {
+//                    throw new BadRequestException("CNPJ inválido");
+//                }
                 pessoa.setIdentificador(identificadorDTO.getCNPJ());
                 pessoa.setValorMinParcelaMensal(TipoIdentificador.PJ.getValorMinParcelaMensal());
                 pessoa.setValorMaxEmprestimo(TipoIdentificador.PJ.getValorMaxEmprestimo());
@@ -117,8 +116,7 @@ public class PessoaServiceImpl implements PessoaService {
                 break;
 
             case AP:
-                if (!ValidacaoPessoa.validaCaractersAposentado(identificadorDTO.getIdentificadorAposentado())
-                        || !ValidacaoPessoa.isValidIdentificadorAposentado(identificadorDTO.getIdentificadorAposentado())) {
+                if (!ValidacaoPessoa.isValidIdentificadorAposentado(identificadorDTO.getIdentificadorAposentado())) {
                     throw new BadRequestException("Identificador de Aposentado inválido");
                 }
                 pessoa.setIdentificador(identificadorDTO.getIdentificadorAposentado());
