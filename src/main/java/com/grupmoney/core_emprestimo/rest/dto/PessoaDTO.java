@@ -36,8 +36,4 @@ public class PessoaDTO {
 
     @NotNull(message = "campo chavePix é obrigatório")
     private String chavePix;
-
-    private BigDecimal valorMinParcelaMensal;
-
-    private BigDecimal valorMaxEmprestimo;
 }

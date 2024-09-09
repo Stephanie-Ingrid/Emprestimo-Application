@@ -29,7 +29,7 @@ public class PessoaController {
 
     @PutMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
-    public void atualizaPessoa (@PathVariable Long id, @RequestBody PessoaDTO pessoaDTO){
+    public void atualizaPessoa(@PathVariable Long id, @RequestBody PessoaDTO pessoaDTO) {
         pessoaService.atualizaPessoa(id, pessoaDTO);
     }
 
@@ -38,7 +38,4 @@ public class PessoaController {
     public void deletaPessoaPorId(@PathVariable Long id) {
         pessoaService.deletarPessoaPorId(id);
     }
-
-
-
 }
