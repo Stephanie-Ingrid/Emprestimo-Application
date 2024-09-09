@@ -2,6 +2,7 @@ package com.grupmoney.core_emprestimo.rest.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.grupmoney.core_emprestimo.domain.enums.TipoIdentificador;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class PessoaDTO {
     @NotNull(message = "campo nome é obrigatório")
     private String nome;
 
+    @Valid
     @NotNull(message = "campo identificador é obrigatório")
     private IdentificadorDTO identificador;
 

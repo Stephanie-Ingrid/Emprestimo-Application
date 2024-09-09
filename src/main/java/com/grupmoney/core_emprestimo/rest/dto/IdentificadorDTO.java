@@ -1,7 +1,6 @@
 package com.grupmoney.core_emprestimo.rest.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,8 +15,10 @@ import org.hibernate.validator.constraints.br.CPF;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IdentificadorDTO {
 
+    @CPF(message = "CPF inválido")
     private String cpf;
 
+    @CNPJ(message = "CNPJ inválido")
     private String CNPJ;
 
     private String matriculaEstudante;
