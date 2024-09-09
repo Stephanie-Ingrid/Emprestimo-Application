@@ -82,20 +82,16 @@ public class PessoaServiceImpl implements PessoaService {
         }
     }
 
-
     private Pessoa validaTipoIdentificador(PessoaDTO pessoaDTO, Pessoa pessoa) {
 
         IdentificadorDTO identificadorDTO = pessoaDTO.getIdentificador();
 
         switch (pessoaDTO.getTipoIdentificador()) {
             case PF:
-                if (identificadorDTO.getCpf() == null){
+                if (identificadorDTO.getCpf() == null) {
                     throw new BadRequestException("campo CPF não pode ser nulo");
                 }
 
-//                if (!ValidacaoPessoa.validaCPF(identificadorDTO.getCpf())) {
-//                    throw new BadRequestException("CPF inválido");
-//                }
                 pessoa.setIdentificador(identificadorDTO.getCpf());
                 pessoa.setValorMinParcelaMensal(TipoIdentificador.PF.getValorMinParcelaMensal());
                 pessoa.setValorMaxEmprestimo(TipoIdentificador.PF.getValorMaxEmprestimo());
@@ -103,13 +99,10 @@ public class PessoaServiceImpl implements PessoaService {
 
             case PJ:
 
-                if (identificadorDTO.getCNPJ() == null){
+                if (identificadorDTO.getCNPJ() == null) {
                     throw new BadRequestException("campo CNPJ não pode ser nulo");
                 }
 
-//                if (!ValidacaoPessoa.validaCNPJ(identificadorDTO.getCNPJ())) {
-//                    throw new BadRequestException("CNPJ inválido");
-//                }
                 pessoa.setIdentificador(identificadorDTO.getCNPJ());
                 pessoa.setValorMinParcelaMensal(TipoIdentificador.PJ.getValorMinParcelaMensal());
                 pessoa.setValorMaxEmprestimo(TipoIdentificador.PJ.getValorMaxEmprestimo());
@@ -135,6 +128,7 @@ public class PessoaServiceImpl implements PessoaService {
         }
         return pessoa;
     }
+
 }
 
 

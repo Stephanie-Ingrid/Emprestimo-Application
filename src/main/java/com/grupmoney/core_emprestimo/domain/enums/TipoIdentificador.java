@@ -12,7 +12,7 @@ public enum TipoIdentificador {
     EU(new BigDecimal(100), new BigDecimal(10000)),
     AP(new BigDecimal(400), new BigDecimal(25000));
 
-    private BigDecimal valorMinParcelaMensal ;
+    private BigDecimal valorMinParcelaMensal;
     private BigDecimal valorMaxEmprestimo;
 
 

@@ -18,7 +18,6 @@ public class EmprestimoController {
 
     private EmprestimoService emprestimoService;
 
-
     @PostMapping
     @ResponseStatus(CREATED)
     public EmprestimoDTO realizarEmprestimo(@RequestBody @Valid EmprestimoDTO emprestimoDTO) {
@@ -30,5 +29,4 @@ public class EmprestimoController {
     public List<EmprestimoDTO> buscaTodosEmprestimos() {
         return emprestimoService.buscaTodosEmprestimos();
     }
-
 }
